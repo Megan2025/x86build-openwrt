@@ -28,8 +28,12 @@ echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # ------------------------------- Other started -------------------------------
 #
-# Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+# Add luci-app-amlogic (fixed: use git clone instead of svn)
+rm -rf package/luci-app-amlogic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+
+# If access to GitHub is slow or blocked, you can use a proxy mirror:
+# git clone https://mirror.ghproxy.com/https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # Fix runc version error
 # rm -rf ./feeds/packages/utils/runc/Makefile
@@ -50,4 +54,3 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
 #
 # ------------------------------- Other ends -------------------------------
-

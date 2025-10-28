@@ -46,7 +46,7 @@ jobs:
         sudo apt-get clean
         df -h
 
-      - name: Initialization environment
+     - name: Initialization environment
         id: init
         env:
           DEBIAN_FRONTEND: noninteractive

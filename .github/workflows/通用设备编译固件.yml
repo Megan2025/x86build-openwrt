@@ -38,13 +38,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
-    # 🧹 新增：释放磁盘空间，防止编译中途 No space left on device
-      - name: Free up disk space
-      run: |
-        echo "🧹 Cleaning up GitHub Actions runner to free space..."
-        sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost /usr/local/lib/android /opt/hostedtoolcache
-        sudo apt-get clean
-        df -h
+
 
       - name: Initialization environment
         id: init

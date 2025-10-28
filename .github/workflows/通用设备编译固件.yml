@@ -39,6 +39,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
+      - name: Clean disk
+        run: |
+          echo "Cleaning up runner disk..."
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost /usr/local/lib/android
+          sudo apt-get clean
+          df -h
+
+
 
       - name: Initialization environment
         id: init
